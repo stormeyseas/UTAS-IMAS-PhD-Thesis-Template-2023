@@ -1,10 +1,3 @@
-\begin{framed}
-\lipsum[3]
-\end{framed}
-
-\note{If you've already published a chapter of your thesis then inserting it unchanged can make the flow seem disruptive. Previous students have included a little ``framed abstract'' before published chapters to briefly contextualise the chapter in terms of the rest of the thesis.}
-
-\newpage
 \section{Introduction}
 You know how it works now....
 
@@ -14,10 +7,8 @@ Figure \ref{2-fig:sites} is a map and it's great.
 
 \begin{figure}[htbp]
     \centering
-    \fbox{
     \includegraphics[width=0.85\linewidth, trim={4cm 0cm 4cm 0cm}, % trim={left bottom right top}
         clip]{figures/C2_1st_data_chapter/map.png}
-    }
     \caption[
         The three field sites from which my data was collected
     ]{
@@ -99,7 +90,7 @@ However, you might just output the figures from R with the As and Bs already on 
         \put (-6, 55) {\normalsize\textbf{D}}
     \end{overpic}
     %
-    \caption[IT'S A LIOPLEURODON CHARLIE]{Landscape, baby! You can trim and clip figures in Latex if you want to.}
+    \caption[IT'S A LIOPLEURODON CHARLIE]{Landscape, baby! You can trim and clip figures in Latex if you want to, although honestly it's a lot easier to do the subfigure layouts in ggplot2 and then just bring the whole picture into Latex.}
     \label{2-fig:liopleurodon}
     %
 \end{figure}
