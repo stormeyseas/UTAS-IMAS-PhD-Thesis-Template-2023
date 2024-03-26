@@ -14,3 +14,5 @@ Michael Sumner's 2014 UTAS PhD Latex thesis (https://github.com/mdsumner/utas_la
 ## Using this template
 
 I am in the process of adding a readme file within the template itself with detailed instructions on how to use each part of this tempate, as I realise that often the thesis-writing process is the first time that many students will be using Latex. Stay tuned also for a detailed featurelist on my blog at https://drtreimer.com.
+
+I originally imported this project from Overleaf, so the simplest way to get started with it is to download it as a zip file and upload it as your own new project to Overleaf. You don't even need a premium subscription! 
