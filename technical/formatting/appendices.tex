@@ -1,0 +1,37 @@
+\appendix 
+\fancyhead[L]{Chapter \thechapter} \fancyhead[C]{} \fancyhead[R]{\nouppercase{\rightmark}}
+
+\makeatletter
+\renewcommand{\@makechapterhead}[1]{%
+    \addcontentsline{lof}{chapter}{\protect\numberline{\thechapter}#1}
+    \addcontentsline{lot}{chapter}{\protect\numberline{\thechapter}#1}
+	{\parindent \z@ \raggedright \reset@font
+		\ifnum \c@secnumdepth >\m@ne
+			\normalfont \bfseries \LARGE \rmfamily \scshape \@chapapp{} \thechapter
+			\par
+			\vskip 15\p@
+		\fi
+		\normalfont \Huge \bfseries \rmfamily  #1\par
+		\nobreak
+		\rule{\linewidth}{0.4pt}
+		\vskip 15\p@
+}}
+\renewcommand{\@makeschapterhead}[1]{%
+	{\parindent \z@ \raggedright \reset@font
+		\ifnum \c@secnumdepth >\m@ne
+			\normalfont \bfseries \LARGE \rmfamily \scshape \@chapapp{} \thechapter
+			\par
+			\vskip 15\p@
+		\fi
+		\normalfont \Huge \bfseries \rmfamily  #1\par
+		\nobreak
+		\rule{\linewidth}{0.4pt}
+		\vskip 15\p@
+}}
+
+\pagestyle{fancy}
+\fancyhead[L]{Appendix \thechapter \chaptermark{}} \fancyhead[C]{} \fancyhead[R]{}
+%\fancyfoot[LE]{\thepage} \fancyfoot[C]{} \fancyfoot[RO]{\thepage}
+\normalsize
+\singlespace
+\makeatother

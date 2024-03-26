@@ -1,0 +1,110 @@
+{\centering \small
+\begin{longtable}{c l p{0.42\linewidth} r r r}
+    \caption[
+        A very fancy table
+    ]{
+        Summary of things! This table will span across multiple pages automatically, so that's nice. It will also place the top and bottom lines automatically at the page breaks.
+    } \label{2-tab:summary} \\
+    %
+    \toprule
+    Method & Unit & Description & Group 1 & Group 2 & Group 3 \\
+    \midrule
+    \endfirsthead
+    %
+    \caption[]{Notice that this caption is different than the first one. I like to replace the (usually long) first caption with a simple ``Table \thetable\ cont.''} \\
+    %
+    \toprule
+    Symbol & Unit & Description & Group 1 & Group 2 & Group 3 \\
+    \midrule
+    \endhead
+    %
+    \bottomrule \endfoot
+    \bottomrule \endlastfoot
+    %
+    % Start of main table
+     & unit & This description is long. This column stays the same width, but the others will adjust to their contents. 
+        & 100\footnote{\citet{smart_seasonal_2022}\label{smart2010}} 
+        & 200\footref{smart2010}
+        & 300\footref{smart2010} \\
+    $B_a$ & unit & This description is long. This column stays the same width, but the others will adjust to their contents. 
+        & 100\footnote{\citet{kopczak_variability_1994}\label{kopczak1994}} 
+        & 200\footref{kopczak1994}
+        & 300\footnote{\citet{miller_ecophysiology_2003}\label{miller2003}} \\
+    $C_a$ & unit & This description is long. This column stays the same width, but the others will adjust to their contents.  
+        & 100\footref{miller2003}
+        & 200\footnote{\citet{wickham_species-specific_2019}\label{wickham2019}}
+        & 300\footref{kopczak1994} \\
+    $D_a$ & unit & This description is long. This column stays the same width, but the others will adjust to their contents.  
+        & 100\footnote{\citet{zuniga_seasonal_2020}\label{zuniga2020}}
+        & 200\footref{wickham2019}
+        & 300\footref{zuniga2020} \\
+    $E_a$ & unit & This description is long. This column stays the same width, but the others will adjust to their contents.  
+        & 100\footref{zuniga2020} 
+        & 200\footref{miller2003}
+        & 300\footref{zuniga2020} \\
+    $F_a$ & unit & This description is long. This column stays the same width, but the others will adjust to their contents.  
+        & 100\footref{miller2003}
+        & 200\footnote{\citet{trancoso_modelling_2005}\label{trancoso2005}}
+        & 300\footref{trancoso2005} \\
+    $G_a$ & unit & This description is long. This column stays the same width, but the others will adjust to their contents. 
+        & 100\footnote{\citet{wheeler_effect_1980}\label{wheeler1980}}
+        & 200\footref{trancoso2005} 
+        & 300\footnote{\citet{biancacci_optimisation_2022}\label{biancacci2022}} \\
+    $H_a$ & unit & This description is long. This column stays the same width, but the others will adjust to their contents.  
+        & 100\footnote{\citet{enriquez_light_1994}\label{enriquez1994}}
+        & 200\footref{biancacci2022} 
+        & 300\footref{zuniga2020} \\
+    $I_a$ & unit & This description is long. This column stays the same width, but the others will adjust to their contents.   
+        & 100\footnote{\citet{gao_growth_2016}\label{gao2016}}
+        & 200\footnote{\citet{buschmann_opportunities_2008}}
+        & 300\footref{gao2016} \\ 
+    $J_a$ & unit & This description is long. This column stays the same width, but the others will adjust to their contents.  
+        & 100\footref{wickham2019}
+        & 200\footnote{\citet{zimmerman_episodic_1984, zimmerman_situ_1986}}
+        & 300\footnote{\citet{bearham_temperature_2013}} \\
+    $K_a$ & unit & This description is long. This column stays the same width, but the others will adjust to their contents. 
+        & 100\footnote{See section \ref{chap:3rd-data}\label{igiveup}}
+        & 200\footnote{\citet{fernandez_nitrogen_2020}\label{fernandez2020}}
+        & 300\footnote{\citet{tala_growth_2005}\label{tala2005}} \\* % I've decided I don't want the page break to happen here.
+    $L_a$ & unit & This description is long. This column stays the same width, but the others will adjust to their contents.  
+        & 100\footref{biancacci2022} 
+        & 200\footnote{\citet{bolton_temperature_1987}\label{bolton1987}}
+        & 300\footref{trancoso2005} \\
+    $M_a$ & unit & This description is long. This column stays the same width, but the others will adjust to their contents.  
+        & 100\footref{gao2016}  
+        & 200\footref{smart2010}
+        & 300\footnote{\citet{james_thermal_2023}\label{james2023}} \\
+    $N_a$ & unit & This description is long. This column stays the same width, but the others will adjust to their contents.  
+        & 100\footref{james2023}  
+        & 200\footref{bolton1987}  
+        & 300\footnote{\citet{hernandez-carmona_effect_2001}\label{hernandez2001}} \\
+    $O_a$ & unit & This description is long. This column stays the same width, but the others will adjust to their contents.  
+        & 100\footref{miller2003}
+        & 200\footnote{\citet{staehr_physiological_2009}}
+        & 300\footnote{\citet{mabin_physiological_2019}\label{mabin2019}} \\
+    $P_a$ & unit & This description is long. This column stays the same width, but the others will adjust to their contents.  
+        & 100\footref{mabin2019}  
+        & 200\footref{hernandez2001}  
+        & 300\footref{smart2010} \\
+    $Q_a$ & unit & This description is long. This column stays the same width, but the others will adjust to their contents.  
+        & 100\footref{biancacci2022} 
+        & 200\footref{wickham2019}
+        & 300\footref{bolton1987} \\
+    $R_a$ & unit & This description is long. This column stays the same width, but the others will adjust to their contents.  
+        & 100\footref{smart2010}
+        & 200\footref{smart2010}
+        & 300\footref{gao2016} \\
+    $S_a$ & unit & This description is long. This column stays the same width, but the others will adjust to their contents.  
+        & 100\footref{mabin2019}  
+        & 200\footref{james2023}  
+        & 300\footref{zuniga2020} \\
+    $T_a$ & unit & This description is long. This column stays the same width, but the others will adjust to their contents.  
+        & 100\footref{zuniga2020} 
+        & 200\footref{trancoso2005} 
+        & 300\footref{hernandez2001} \\
+    $U_a$ & unit & This description is long. This column stays the same width, but the others will adjust to their contents.  
+        & 100\footref{hernandez2001}  
+        & 200\footref{tala2005}  
+        & 300\footref{wickham2019} \\
+\end{longtable}
+}

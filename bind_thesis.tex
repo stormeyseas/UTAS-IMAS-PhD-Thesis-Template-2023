@@ -1,0 +1,145 @@
+% This section allows you to use package options without loading all the packages individually
+\PassOptionsToPackage{dvipsnames}{xcolor}
+\PassOptionsToPackage{colorinlistoftodos, prependcaption}{todonotes}
+\PassOptionsToPackage{export}{adjustbox}
+\PassOptionsToPackage{natbibapa}{apacite}
+\PassOptionsToPackage{english}{babel}
+\PassOptionsToPackage{para}{footmisc}
+\PassOptionsToPackage{acronym}{glossaries}
+\PassOptionsToPackage{printonlyused}{acronym}
+\PassOptionsToPackage{T1}{fontenc}
+\PassOptionsToPackage{linktocpage = true}{hyperref}
+\PassOptionsToPackage{utf8}{inputenc}
+\PassOptionsToPackage{toctitles}{titlesec}
+
+\documentclass[12pt, a4paper, twoside, openright, final]{report}
+
+% Load all the packages required by the various bits of this template, and some useful stuff as well. If you need any other packages just add them to this list.
+\usepackage{graphicx, makeidx, changes, amsmath, tocbibind, sectsty, fancyhdr, appendix, lipsum, afterpage, ifthen, xkeyval, xcolor, tikz, calc, listings, acronym, adjustbox, array, authblk, babel, stackengine, etoolbox, booktabs, regexpatch, caption, colortbl, dcolumn, footmisc, glossaries, calc, inputenc, longtable, lscape, multirow, parskip, overpic, siunitx, subfig, framed, pgfplots, xspace, xargs, sansmathfonts, fontenc, url, todonotes, titlesec, enumitem, csquotes}
+% Some packages insist on being loaded seperately
+\usepackage[backend=biber, natbib, style=apa]{biblatex}
+\usepackage{hyperref} % MUST load hyperref here, it's really fussy
+\usepackage{technical/imasphdthesis} % This custom package sets up all the extraneous thesis stuff
+
+% Export a biblatex file and add here, plus any manual references if needed
+\addbibresource{other_content/thesis_refs_biblatex.bib} \addbibresource{other_content/manual-refs.bib}
+\DefineBibliographyStrings{english}{%
+    bibliography = {Global Reference List} % Set bibliography name
+}
+
+% This is my preferred setup for the "to-do notes" package, which I use to leave myself notes
+\setuptodonotes{inline, color=ForestGreen!50}
+
+% If you want to generate an index you should include the following command and un-comment the \printindex command at the very end of this file. 
+% An index is an alphabetical list of words/expressions with the page numbers where they can be found. Use \index{} in the main text to add a word to the index.
+\makeindex
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Uncommenting this next line will make all your custom todo-notes maaaaaaaagically disappear!
+%\renewcommand{\todo}[1]{\vphantom{\hphantom{#1}}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\title{MY THESIS IS GOING TO BE AWESOME} % Use all capital letters
+\author{Ms Bea A. Mazing} % Use mixed upper & lower case
+\prevdegrees{M.Sc. B.Sc. Hons} % Specify previous degrees, use mixed upper & lower case
+\advisor{Professor H. Hound} % example: Professor Lawrence K. Forbes
+\dept{Fisheries \& Aquaculture}
+\date{} % alternatively, manually include month & year of your thesis submission as below
+%\submitdate{January, 2025} 
+
+% Set headers for preface sections (these are not required to be all caps any more)
+\settocname{Table of Contents} % Set the table of contents name
+\setlofname{List of Figures} % Set the list of figures name
+\setlotname{List of Tables} % Set the list if tables name
+\setindexname{Index} % Set the index name
+
+% Custom commands are seperated out for neatness. Put any custom commands you want to include in here
+\include{other_content/new_commands}
+
+% Aliases allow you to define acronyms or shortened author names for use in in-text citations while keeping the full name in the reference list (e.g. CSIRO, IMAS, FAO). See the file for details.
+\include{other_content/citation_aliases}
+
+% Populates all text in the preface sections
+\include{other_content/preface_text}
+
+% \insertplain and \insertempty are two commands you might find useful. \insertplain inserts a single page that has no content but retains some of the formatting of the previous page (ie page numbers). \insertempty inserts a completely empty page with nothing on it at all.
+
+% Start of preface sections - comment out any optional sections you don't need or don't want to load right now for speed
+\singlespace
+\titlepg % Title page (required) including empty page after
+\dedication % Dedication of thesis (optional). Not currently in template, but this is where it would go.
+\signaturepage % Declaration of originality and copyright (required)
+%\publishedstatement % Statement regarding published work (optional). Not currently in template, but this is where it would go.
+\coauthorship % Optional, only if you need to declare co-authorship
+%\ethicalconduct % Statement regarding ethical conduct. Not currently in template, but this is where it would go.
+\acknowledgements % Acknowledgments page (optional)
+\thesisquote % Optional
+\generalabstract % Abstract to be bound with thesis (required)
+\insertplain
+
+% Contents, lists of tables and figures
+\include{technical/formatting/tocs}
+\tableofcontents
+\listoffigures 
+\listoftables 
+% The list of acronyms isn't a "proper" chapter so it doesn't automatically open on an odd page like the others and needs these bookends. Remove them if necessary.
+    \clearpage \null \newpage 
+\listofacronyms
+    \clearpage \null \newpage
+
+%% Main chapter texts
+% I've customised my lists of tables and figures to include the chapters as sub-headings as well so you know where the figures/tables sit. 
+% However, if a chapter has no figures/tables, that looks weird. As a workaround, the formatting file below can be copied, modified and re-inserted before any chapter to change which headers appear in which lists.
+\input{technical/formatting/general_intro} 
+
+% I've included the chapter titles in this document and then all the content in the seperate tex files. This way, you can comment out the content for faster/piecemeal loading but keep all the headings and lables, and the chapter numbers don't get messed up.
+\chapter[General introduction and structure of this thesis
+       ]{General introduction, structure of this thesis and maybe an even longer title bit: let me tell you my life story
+       }\label{chap:gen-intro}
+\include{chapters/C1_general_intro}
+    
+\chapter[This is the title of my first data chapter
+       ]{This is the title of my first data chapter
+       }\label{chap:1st-data}
+\include{chapters/C2_1st_data_chapter}
+
+\chapter[This is the title of my second data chapter
+       ]{This is the title of my second data chapter
+       }\label{chap:2nd-data}
+\include{chapters/C3_2nd_data_chapter}
+    
+\chapter[This is the title of my third data chapter
+       ]{This is the title of my third data chapter
+       }\label{chap:3rd-data}
+\include{chapters/C4_3rd_data_chapter}
+    
+\chapter[General discussion
+       ]{General discussion and synthesis of findings
+       }\label{chap:gen-disc}
+\include{chapters/C5_general_discussion}
+
+% Reference list
+\include{technical/formatting/reflist}
+\printbibliography
+\printindex % optional
+
+% Appendices
+\include{technical/formatting/appendices}
+\chapter[Chapter \ref{chap:1st-data} appendix
+       ]{Chapter \ref{chap:1st-data} appendix
+       }\label{app:A1_app_name}
+\include{appendices/A1_app_name}
+
+\chapter[Statistical results for Chapter \ref{chap:2nd-data}
+       ]{Statistical results for Chapter \ref{chap:2nd-data}
+       }\label{app:A2_app_name}
+\include{appendices/A2_app_name}
+
+\chapter[Chapter \ref{chap:2nd-data} appendix
+       ]{Additional and supporting information for \ref{chap:2nd-data}
+       }\label{app:A3_app_name}
+\include{appendices/A3_app_name}
+
+\end{document}

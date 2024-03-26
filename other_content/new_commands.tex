@@ -1,0 +1,48 @@
+% For custom commands
+
+\newcommand{\bfx}{{\ensuremath{\mathbf{x}}}}
+\newcommand{\bfy}{{\ensuremath{\mathbf{y}}}}
+
+% These columns replace the original c, l and r column types with C{xcm}, R{xcm} and R{xcm} columns that will wrap text
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash}p{#1}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+\newcolumntype{X}[1]{>{\centering \arraybackslash}m{#1}}
+
+% The original \paragraph command doesn't act as a miniheading - this does
+\titlespacing*{\paragraph}{0pt}{3.25ex plus 1ex minus .2ex}{1em}
+\newcommand{\myparagraph}[1]{\paragraph{#1}\mbox{}\\}
+
+% I like to put little icons inline, especially in figure legends. This allows that with \icon{image_file.png}
+\newcommand*{\icon}[1]{%
+    \raisebox{-0.2\baselineskip}{%
+        \includegraphics[height=0.75\baselineskip,
+                         width=0.75\baselineskip,
+                         keepaspectratio]{#1}}}
+
+\newcommand{\note}[1]{\todo{#1}}
+\newcommand{\fix}[1]{\todo{#1}}
+
+% Super useful!! Species commands that allow you to use a one-word command for each species. The first time its used in the document it will give the full name and attribution, then all other times it will give the abbreviated name in italics.
+\newcommand{\species}[4]{%
+  \newcommand{#1}{\gdef#1{\textit{#4}\xspace}\textit{#2}\xspace#3\xspace}}
+% Usage:
+% \species{\<customcommand>}{<full~binomial~name>}{<species~citation>}{<abbreviated~binomial~name>}
+
+% Here are the ones I've used....
+\species{\macrocystis}{Macrocystis~pyrifera}{(L.)~C.~Agardh}{M.~pyrifera}
+\species{\ecklonia}{Ecklonia~radiata}{(C.~Agardh)~J.~Agardh}{E.~radiata}
+\species{\lessonia}{Lessonia~corrugata}{A.H.S.~Lucas}{L.~corrugata}
+\species{\asalmon}{Salmo~salar}{L.}{S.~salar}
+\species{\saccharina}{Saccharina~latissima}{(L.)~C.~E.~Lane,~C.~Mayes,~Druehl~\&~G.~W.~Saunders}{S.~latissima}
+\species{\mytilus}{Mytilus~edulis}{L.}{M.~edulis}
+
+% These are the citation alias commands - see citation_aliases.tex for details
+\newcommand{\mycitet}[1]{%
+    \citetalias{#1}~(\citeyear{#1})}
+\newcommand{\mycitep}[1]{%
+    (\citetalias{#1},~\citeyear{#1})}
+\newcommand{\mycitealt}[1]{%
+    \citetalias{#1}~\citeyear{#1}}
+    
+% end of new commands

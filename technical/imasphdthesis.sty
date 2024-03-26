@@ -1,0 +1,294 @@
+% Style file to assist in generating a University of Tasmania PhD thesis at the Institute for Marine and Antarctic Studies. 
+% Contains all the required formatting options and header/footer information, and all margins, line spacing, etc is at least the minimum as required by IMAS. Most dimensions are actually a little larger (more spaced out) than required because it looks nicer.
+% This file should be easily modifiable to comply with minor formatting changes (such as the left margin width etc.)
+
+% Set the default font to sans-serif, rather than the serif-font default of Latex - it's nicer to look at on computer screens
+\renewcommand*\familydefault{\sfdefault}
+    \pgfplotsset{compat=1.18}
+    \renewcommand\Affilfont{\itshape\small}
+
+% Set the default font specifications for sections headers, etc. Note that in Latex raggedright=left aligned
+\chapterfont{\nohang\rmfamily\raggedright} % Set the Chapter font specifications
+\sectionfont{\nohang\rmfamily\raggedright} % Set the Section font specifications
+\subsectionfont{\nohang\rmfamily\raggedright} % Set the Subsection font specifications
+\subsubsectionfont{\nohang\rmfamily\raggedright} % Set the Subsubsection font specifications
+
+%If you want to see what your document dimensions are called to modify them, add these lines to your main document (thesis_bind.tex) and recompile.
+%\usepackage{layout}
+%\begin{document}
+%\layout
+%\end{document}
+
+% Sets the padding distances between text and equations
+\makeatletter
+\g@addto@macro\normalsize{%
+    \setlength\abovedisplayskip{20pt}
+    \setlength\belowdisplayskip{20pt}
+    \setlength\abovedisplayshortskip{20pt}
+    \setlength\belowdisplayshortskip{20pt}
+    }
+\makeatother
+
+% Adjusts the "plain" page style (used in preface sections and on blank pages)
+\fancypagestyle{plain}{%
+    \fancyhf{}
+    \fancyhead{}
+    \fancyfoot[RO, LE]{\thepage} % page number appears on right on odd pages, left on even pages
+    \renewcommand{\headrulewidth}{0pt} % No headrule
+} 
+
+% Adjust the "fancy" (default) page style
+\fancypagestyle{fancy}{
+    \fancyhf{}
+    \fancyhead[L]{Chapter \thechapter} \fancyhead[C]{} \fancyhead[R]{\nouppercase{\rightmark}}
+    \fancyfoot[RO, LE]{\thepage} % page number appears on right on odd pages, left on even pages
+    \renewcommand{\headrulewidth}{0.4pt}
+} 
+
+% Set maximum section depth that will appear in the table of contents
+\setcounter{secnumdepth}{3}
+
+% This makes all acronyms start with a capital letter in the list of acronyms regardless of how they are defined or appear in the text
+\makeatletter
+\expandafter\patchcmd\csname AC@\AC@prefix{}@acro\endcsname{{#3}}{{\MakeUppercase #3}}{}{}
+\expandafter\patchcmd\csname AC@\AC@prefix{}@acro\endcsname{{#3}}{{\MakeUppercase #3}}{}{}
+
+% Activate links in PDFs, including in reference list, and make them a nice teal
+\hypersetup{colorlinks = true, allcolors = teal}
+\urlstyle{same}
+
+% Set the required page format, margins, text widths etc. Note that 1 inch = 2.54 cm, and LaTeX has a fixed minimum top and left border of 1 inch, so we need to take this into account when calculating sizes.
+\setlength{\topmargin}{0.0cm} % Set the top margin to be 1inch from the paper edge.
+\setlength{\headsep}{1.0cm} % Set the header-body separation level
+\setlength{\footskip}{1.5cm} % Set the footskip
+\setlength{\headheight}{1cm} % Set the header height
+
+% Set the bottom margin to be 1 inch from the paper edge by way of the \paperheight and \textheight commands
+\newlength{\textheit} % First set up a new length called \textheit
+\setlength{\textheit}{\paperheight} % Set the value of \textheit to the total paper height for the paper size declared in the \documentclass command
+\addtolength{\textheit}{-2.0in} % Subtract off 1 inch from top and bottom of the paper
+\addtolength{\textheit}{-\topmargin} % Subtract off the \topmargin height
+\addtolength{\textheit}{-\headheight} % Subtract off the \headheight height
+\addtolength{\textheit}{-\headsep} % Subtract off the \headsep height
+\addtolength{\textheit}{-\footskip} % Subtract off the \footskip height
+\setlength{\textheight}{\textheit} % Finally, set the text height to that calculated above
+
+% Set the text to flush to the bottom of each page (optional)
+%\flushbottom
+
+% Set the right margin to be 1 inch from the paper edge by way of the \paperwidth and \textwidth commands
+\setlength{\oddsidemargin}{0cm}
+\setlength{\evensidemargin}{1.25cm}
+\newlength{\textwid} % First set up a new length called \textwid
+\setlength{\textwid}{\paperwidth} % Set the value of \textwid to the total paper width for the paper size declared in the \documentclass command
+\addtolength{\textwid}{-2.0in} % Subtract off 1 inch from each side of the paper
+\addtolength{\textwid}{-\oddsidemargin} % Subtract off the \oddsidemargin width
+\addtolength{\textwid}{-\evensidemargin} % Subtract off the \evensidemargin width
+\setlength{\textwidth}{\textwid} % Finally, set the text width to that calculated above
+
+\setlength{\parskip}{16pt} % Set the paragraph spacing
+\setlength{\parindent}{0pt} % Set the paragraph indentation level
+
+% These lines set the inside and outside page margins to be different widths for printing, which is required for the thesis hard copy. If you want margins to be the same size, comment these lines out.
+\let\tmp\oddsidemargin
+\let\oddsidemargin\evensidemargin
+\let\evensidemargin\tmp
+\reversemarginpar  
+
+% Use this so LaTeX can differentiate user defined commands from internal ones. Modifies how LaTeX interprets the @ symbol...
+\makeatletter
+% Set some basic lengths
+\newlength{\li} 
+\setlength{\li}{12pt}
+\newlength{\signed} 
+\settowidth{\signed}{signedd}
+\newcommand{\nospace}{\baselineskip 1\li}
+\newcommand{\singlespace}{\baselineskip 1.5\li}
+\newcommand{\doublespace}{\baselineskip 2.0\li}
+\newcommand{\triplespace}{\baselineskip 3.0\li}
+
+% Stretch the table and figure caption text so they match the text a bit better
+\captionsetup[table]{font={stretch=1.10}}
+\captionsetup[figure]{font={stretch=1.10}}
+
+% Footnotes are letters that reset within each section instead of superscript numbers - this is not required but useful
+\counterwithin*{footnote}{section}
+    \renewcommand{\thefootnote}{\textit{\alph{footnote}}}
+
+\newcommand{\insertplain}{%
+    \clearpage \newpage
+    \thispagestyle{plain} \null
+    \clearpage \newpage
+}
+\newcommand{\insertfancy}{%
+    \clearpage \newpage
+    \thispagestyle{fancy} \null
+    \clearpage \newpage
+}
+\newcommand{\insertempty}{%
+    \clearpage \newpage
+    \thispagestyle{empty} \null
+    \clearpage \newpage
+}
+
+% Allows you to create a heading that looks like a chapter heading but it doesn't actually increment the chapter counter and doesn't look the same in the TOC
+\def\prefaceheading#1{%
+    {\parindent \z@ \raggedright \reset@font
+    \normalfont \Huge \bfseries \rmfamily  #1\par
+    \nobreak
+    \rule{\linewidth}{0.4pt}
+    \vskip 30\p@}
+}
+
+% Gets the information about the author, title etc from the file 'preface_text.tex' and populates the relevant fields.
+\def\dept#1{\gdef\@dept{#1}}
+\def\advisor{\gdef\@advisor}
+\def\prevdegrees{\gdef\@prevdegrees}
+\def\author{\gdef\@author}
+\def\submitdate#1{\gdef\@submitdate{#1}}
+\def\copyrightyear#1{\gdef\@copyrightyear{#1}} 
+\def\@title{}
+%\def\@author{}
+\def\@dept{}
+\def\@submitdate{\ifcase\the\month\or
+  January\or February\or March\or April\or May\or June\or July\or August\or September\or October\or November\or December\fi \space \number\the\year}
+\ifnum\month=12
+    \@tempcnta=\year \advance\@tempcnta by 1
+    \edef\@copyrightyear{\number\the\@tempcnta}
+\else
+    \def\@copyrightyear{\number\the\year}
+\fi
+
+% Get the latest logos from https://universitytasmania.sharepoint.com/sites/marketing/SitePages/Marketing-Download.aspx#logos and change the values below and in the titlepage definition
+% Dimensions of the UTAS logo (pixels): 724 H x 916 W
+% Dimensions of the IMAS logo (pixels): 479 H x 1030 W
+% Make the UTAS and IMAS logos line up - heights need to match but you only get to specify relative widths, so scale UTAS logo by 479/724 = 0.6616 to new dimensions of 479 x 606 pixels
+% Now UTAS logo should take up 606/(606+1030) = 0.37\linewidth
+
+% Make title page
+\def\titlepg{%
+    \pagenumbering{roman} \pagestyle{empty}	\singlespace \null\vskip0.25in
+	\begin{center}
+		{\Huge\uppercase\expandafter{\@title}\par}
+	\end{center}
+	\null\vskip0.25in
+	\begin{center}
+		\rm  by \\
+	\end{center}
+	\null\vskip0.25in
+	\begin{center}
+       \rm \large{\@author} \\ {\@prevdegrees} \\
+    \end{center}
+	\null\vskip0.25in
+	\begin{center}
+		\rm \vskip \li Submitted in fulfilment of the requirements \\ for the Degree of Doctor of Philosophy \\
+	\end{center}
+	\null\vskip0.25in
+	\begin{center}
+        \rm \large {\@dept} \\ Institute for Marine and Antarctic Studies \\ University of Tasmania \\ {\@submitdate} \\
+        \null\vskip0.25in
+        \begin{figure*}[h!]
+        \begin{center}
+        \scalebox{0.6}{
+            \includegraphics[width = 0.37\linewidth]{technical/titlepage_logos/UTAS_logo.png}
+            \hspace{4pt} \vrule \hspace{10pt}
+            \includegraphics[width = 0.63\linewidth]{technical/titlepage_logos/IMAS_logo.jpg}
+        }
+        \end{center}
+        \end{figure*}
+    \end{center}
+    \insertempty
+}
+
+\def\signaturepage{%
+    \thispagestyle{empty}
+	\null\vskip1.5cm
+    \addcontentsline{toc}{chapter}{Declaration of Originality}
+    \singlespace
+	\begin{quote}
+        {\normalsize I certify that the intellectual content of this thesis is the product of my own work and that all assistance received in preparing this thesis and sources have been acknowledged, nor has this thesis been submitted for any degree or other purposes}
+	\end{quote}
+	\null\vskip1cm
+	\begin{quote}{
+        Signed: \hrulefill
+
+        \hspace*{0mm}\phantom{Signed: }{\@author} \\
+	    \hspace*{0mm}\phantom{Signed: }Date: \today}
+    \end{quote}
+    %
+	\null\vskip1.5cm
+    \addcontentsline{toc}{chapter}{Authority of Access Statement}
+	\begin{quote}
+        {\normalsize This thesis may be made available for loan and limited copying and communication in accordance with the {\sl Copyright Act 1968}.}
+	\end{quote}
+	\null\vskip1cm
+	\begin{quote}
+        {Signed: \hrulefill
+
+        \hspace*{0mm}\phantom{Signed: }{\@author} \\
+	    \hspace*{0mm}\phantom{Signed: }Date: \today}
+     \end{quote}
+     \null\vskip1cm
+     %
+     \insertempty
+ }
+		
+\def\coauthorship{ 
+    \pagestyle{plain}
+    \singlespace
+    \addcontentsline{toc}{chapter}{Statement on Co-Authorship}
+	\prefaceheading{Statement on Co-Authorship}
+	\input{other_content/coauthorship}
+    \clearpage
+}
+		
+\def\acknowledgements{
+    \pagestyle{plain}
+    \singlespace
+	\addcontentsline{toc}{chapter}{Acknowledgements}
+	\prefaceheading{Acknowledgements}
+	\input{other_content/acknowledgements}
+    \clearpage
+}
+
+\newcommand{\listofacronyms}{%
+    \clearpage
+    \thispagestyle{plain}
+    \addcontentsline{toc}{chapter}{List of Acronyms}
+    \prefaceheading{List of Acronyms}
+    \input{other_content/acronyms}
+    \pagestyle{fancy}
+    \fancyhf{}
+    \fancyhead[L]{} \fancyhead[C]{} \fancyhead[R]{List of Acronyms}
+    \fancyfoot[RO, LE]{\thepage}
+    \clearpage
+}
+
+\def\includelistoftodos{
+    \addcontentsline{toc}{chapter}{My list of notes and to-dos}
+    \listoftodos[My list of notes and to-dos]
+    \clearpage
+}
+
+\def\generalabstract{
+	\singlespace
+    \addcontentsline{toc}{chapter}{General Abstract}
+	\prefaceheading{General Abstract}
+	\input{other_content/general_abstract}
+    \clearpage
+}
+
+\newcommand{\thesisquote}{%
+    \pagestyle{plain}
+    \input{other_content/thesis_quote}
+    \clearpage
+}
+
+\newcommand{\dedication}{%
+    \pagestyle{empty}
+    \input{other_content/dedication}
+    \insertempty
+}
+
+% Reset the behaviour of the @ symbol
+\makeatother

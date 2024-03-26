@@ -1,0 +1,40 @@
+% Just some general formatting for the main chapters. 
+\pagestyle{fancy}
+\pagenumbering{arabic}
+
+% My general introduction has figures but no tables
+\makeatletter
+\renewcommand{\@makechapterhead}[1]{%
+    % Comment out next line to remove the chapter from the list of figures
+    \addcontentsline{lof}{chapter}{\protect\numberline{\thechapter}#1}
+    % Comment out next line to remove the chapter from the list of tables
+    %\addcontentsline{lot}{chapter}{\protect\numberline{\thechapter}#1}
+	{\parindent \z@ \raggedright \reset@font
+		\ifnum \c@secnumdepth >\m@ne
+			\normalfont \bfseries \LARGE \rmfamily \scshape \@chapapp{} \thechapter
+			\par
+			\vskip 15\p@
+		\fi
+		\normalfont \Huge \bfseries \rmfamily  #1\par
+		\nobreak
+		\rule{\linewidth}{0.4pt}
+		\vskip 15\p@
+}}
+
+\renewcommand{\@makeschapterhead}[1]{%
+    % Comment out next line to remove the chapter from the list of figures
+    \addcontentsline{lof}{chapter}{\protect\numberline{\thechapter}#1}
+    % Comment out next line to remove the chapter from the list of tables
+    %\addcontentsline{lot}{chapter}{\protect\numberline{\thechapter}#1}
+	{\parindent \z@ \raggedright \reset@font
+		\ifnum \c@secnumdepth >\m@ne
+			\normalfont \bfseries \LARGE \rmfamily \scshape \@chapapp{} \thechapter
+			\par
+			\vskip 15\p@
+		\fi
+		\normalfont \Huge \bfseries \rmfamily  #1\par
+		\nobreak
+		\rule{\linewidth}{0.4pt}
+		\vskip 15\p@
+}}
+\makeatother

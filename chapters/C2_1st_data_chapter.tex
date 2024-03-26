@@ -1,0 +1,117 @@
+\begin{framed}
+\lipsum[3]
+\end{framed}
+
+\note{If you've already published a chapter of your thesis then inserting it unchanged can make the flow seem disruptive. Previous students have included a little ``framed abstract'' before published chapters to briefly contextualise the chapter in terms of the rest of the thesis.}
+
+\newpage
+\section{Introduction}
+You know how it works now....
+
+\section{Methods}
+
+Figure \ref{2-fig:sites} is a map and it's great.
+
+\begin{figure}[htbp]
+    \centering
+    \fbox{
+    \includegraphics[width=0.85\linewidth, trim={4cm 0cm 4cm 0cm}, % trim={left bottom right top}
+        clip]{figures/C2_1st_data_chapter/map.png}
+    }
+    \caption[
+        The three field sites from which my data was collected
+    ]{
+        The three field sites from which my data was collected. Adapted from \citet{biancacci_optimisation_2022}.
+    } \label{2-fig:sites}
+\end{figure}
+
+\subsubsection{Experimental setup}
+This new paragraph shows how to set \index{index items}index items
+and \index{index items!subindex items} subindex items.
+
+\subsection{Data collection and analysis}
+I used the ``input'' command to put a big table in here because otherwise it takes up a lot of room in my code.
+You can also try putting this table in landscape mode, but your text can't flow around it like a figure. 
+
+%\begin{landscape}
+    \input{big_tables/2_summary}
+%\end{landscape}
+
+\section{Results}
+
+\subsection{Subset 1}
+
+Sometimes subfigures are needed, and you can do it with Figures \ref{2-fig:parrots}A \& B.
+However, you might just output the figures from R with the As and Bs already on them and put them in here as-is. 
+
+\begin{figure}[hbtp]
+    \centering
+    \begin{overpic}[width=0.48\linewidth, trim={1.5cm 0cm 1cm 0cm}, clip%,grid, tics = 10
+        ]{figures/C2_1st_data_chapter/parrots.jpg}
+        \put(-5,65) {\normalsize\textbf{A}}
+    \end{overpic}
+    \begin{overpic}[width=0.48\linewidth, trim={1.5cm 0cm 1cm 0cm}, clip%,grid, tics = 10
+        ]{figures/C2_1st_data_chapter/parrots.jpg}
+        \put(-5,65) {\normalsize\textbf{B}}
+    \end{overpic}
+    \begin{overpic}[width=0.97\linewidth, trim={0cm 0cm 0cm -0.1cm}, clip%, grid, tics = 5
+        ]{figures/C2_1st_data_chapter/parrots.jpg}
+        \put(-2.5,57.5) {\normalsize\textbf{C}}
+    \end{overpic}
+    \caption[
+        Example of sub-figures
+    ]{
+        Sub-figures can be put side-by-side, and you can use trimming and grids to get the sizing and scaling right.
+    }\label{2-fig:parrots}
+\end{figure}
+
+\subsection{Subset 2}
+
+\begin{landscape}
+\begin{figure}[p]
+    \centering
+    %
+    \begin{overpic}[width=0.4\linewidth%, grid, tics = 10 
+                    , trim={-2.5cm 2.5cm 0cm -0.5cm} % left bottom right top
+                    , clip
+        ]{figures/C2_1st_data_chapter/liopleurodon.jpg}
+        \put (-6, 55) {\normalsize\textbf{A}}
+    \end{overpic}
+    %
+    \begin{overpic}[width=0.4\linewidth%, grid, tics = 10
+                    , trim={-2.5cm 2.5cm 0cm -0.5cm} % left bottom right top
+                    , clip
+        ]{figures/C2_1st_data_chapter/liopleurodon.jpg}
+        \put (-6, 55) {\normalsize\textbf{B}}
+    \end{overpic}
+    %
+    \begin{overpic}[width=0.4\linewidth%, grid, tics = 10
+                    , trim={-2.5cm 2.5cm 0cm -0.5cm} % left bottom right top
+                    , clip
+        ]{figures/C2_1st_data_chapter/liopleurodon.jpg}
+        \put (-6, 55) {\normalsize\textbf{C}}
+    \end{overpic}
+    %
+    \begin{overpic}[width=0.4\linewidth%, grid, tics = 10
+                    , trim={-2.5cm 2.5cm 0cm -0.5cm} % left bottom right top
+                    , clip
+        ]{figures/C2_1st_data_chapter/liopleurodon.jpg}
+        \put (-6, 55) {\normalsize\textbf{D}}
+    \end{overpic}
+    %
+    \caption[IT'S A LIOPLEURODON CHARLIE]{Landscape, baby! You can trim and clip figures in Latex if you want to.}
+    \label{2-fig:liopleurodon}
+    %
+\end{figure}
+\end{landscape}
+
+\clearpage
+\section{Discussion}
+\subsection{I have so much to talk about}
+\lipsum[1][]
+
+\subsection{You can't shut me up}
+\lipsum[3][]
+
+\subsubsection{Just one more thing}
+\lipsum[5][]

@@ -1,0 +1,22 @@
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{} \fancyhead[C]{} \fancyhead[R]{\nouppercase{\rightmark}}
+\fancyfoot[RO, LE]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+\makeatletter
+\renewcommand{\@makechapterhead}[1]{%
+	{\parindent \z@ \raggedright \reset@font
+		\normalfont \Huge \bfseries \rmfamily  #1\par
+		\nobreak
+		\rule{\linewidth}{0.4pt}
+		\vskip 15\p@
+}}
+\renewcommand{\@makeschapterhead}[1]{%
+	{\parindent \z@ \raggedright \reset@font
+		\normalfont \Huge \bfseries \rmfamily  #1\par
+		\nobreak
+		\rule{\linewidth}{0.4pt}
+		\vskip 15\p@
+}}
+\makeatother
